@@ -38,12 +38,25 @@ systemctl status ssh
 systemctl enable ssh
 ```
 
-Buka command prompt untuk me-remote Wazuh-Manager danWazuh-Agent
-untuk manager
+setting di `VirtualBox` buka `File-Tools-Network Manager-Nat Network-Create`
+Lalu di masing masing VM jalankan dhclient
 ```
-ssh Wazuh-Manager@<ip address> -p 2222
+sudo dhclient
 ```
-untuk agent
+matikan firewall
 ```
-ssh Wazuh-Manager@<ip address> -p 2223 
+sudo ufw disable
+```
+jika dhclient belum ada, install dengan perintah
+```
+sudo apt install isc-dhcp-client
+```
+cek apakah vm sudah dapat ip enp0s8
+```
+ip a
+```
+
+remote ssh di windows
+```
+Wazuh-Manager ssh@<ip-address>
 ```
